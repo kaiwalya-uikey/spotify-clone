@@ -24,7 +24,7 @@ let songs = [ // array of objects hai ye
 
 songItems.forEach((element, i)=>{ 
     element.getElementsByTagName("img")[0].src = songs[i].coverPath; 
-    element.getElementsByClassName("songName")[0].innerText = songs[i].songName; 
+    element.getElementsByClassName("songName")[0].innerText = songs[i].songName; // array ko iterate karke hum song name set kar rahe hai songs naaam kaa array hai
 })
  
 
@@ -55,25 +55,26 @@ myProgressBar.addEventListener('change', ()=>{    // my progressbar pe change ev
                                // myProgressBar.value = progress = parseInt((audioElement.currentTime/audioElement.duration)* 100);
 })
 
-const makeAllPlays = ()=>{
+const makeAllPlays = ()=>{// ye ek function banaya jab ek song play ho raha hai to dusre song ki btn pe play kaa btn dikhaye aur us song pe pause ka btn
     Array.from(document.getElementsByClassName('songItemPlay')).forEach((element)=>{
         element.classList.remove('fa-pause-circle');
         element.classList.add('fa-play-circle');
     })
 }
 
-Array.from(document.getElementsByClassName('songItemPlay')).forEach((element)=>{
-    element.addEventListener('click', (e)=>{ 
-        makeAllPlays();
-        songIndex = parseInt(e.target.id);
-        e.target.classList.remove('fa-play-circle');
+Array.from(document.getElementsByClassName('songItemPlay')).forEach((element)=>{ //<span class="songlistplay"><span class="timestamp">05:34 <i id="0" class="far songItemPlay fa-play-circle"></i> </span></span>
+    // sonss ke name ke side me jo play button hai uspe click event laga rahe hai songItemPlay se usko access kar re
+    element.addEventListener('click', (e)=>{ // in btn par koi bhi click karta hai to hum ek callback function run karenge jisse song play hoga
+        makeAllPlays();// ye function hai jo
+        songIndex = parseInt(e.target.id);// e.target se wo element mil jaayega jis par click hua hai 
+        e.target.classList.remove('fa-play-circle');// play btn remove karke pause btn add karo
         e.target.classList.add('fa-pause-circle');
-        audioElement.src = `songs/${songIndex+1}.mp3`;
+        audioElement.src = `songs/${songIndex+1}.mp3`;// jis par click kar re wo song play honga // index +1 kyuki we started array from 0
         masterSongName.innerText = songs[songIndex].songName;
         audioElement.currentTime = 0;
         audioElement.play();
         gif.style.opacity = 1;
-        masterPlay.classList.remove('fa-play-circle');
+        masterPlay.classList.remove('fa-play-circle');// masterplay bole to wo niche waala play pause btn usko bhi updte kar re
         masterPlay.classList.add('fa-pause-circle');
     })
 })
