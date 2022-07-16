@@ -8,6 +8,7 @@ let myProgressBar = document.getElementById('myProgressBar');// 79 <input type="
 let gif = document.getElementById('gif'); // 87 <img src="playing.gif" width="42px" alt="" id="gif"> <span id="masterSongName">Warriyo - Mortals [NCS Release]</span>
 let masterSongName = document.getElementById('masterSongName');
 let songItems = Array.from(document.getElementsByClassName('songItem'));
+let songItemPlay= document.getElementsByClassName('songItemPlay');
 
 let songs = [ // array of objects hai ye
     {songName: "Warriyo - Mortals [NCS Release]", filePath: "songs/1.mp3", coverPath: "covers/1.jpg"},
@@ -35,6 +36,11 @@ masterPlay.addEventListener('click', ()=>{// agar masterplay icon pe koi click k
         masterPlay.classList.remove('fa-play-circle');// play button remove karo aur pause btn dikhao
         masterPlay.classList.add('fa-pause-circle');
         gif.style.opacity = 1;// jo gif lagaya hai wo play karne pe dikhegaa pause pe nahi
+        // e.target.classList.remove('fa-play-circle');
+        // e.target.classList.add('fa-pause-circle');
+        // element.classList.remove('fa-play-circle');
+        // element.classList.add('fa-pause-circle');
+        
     }
     else{
         audioElement.pause();
@@ -79,7 +85,7 @@ Array.from(document.getElementsByClassName('songItemPlay')).forEach((element)=>{
     })
 })
 
-document.getElementById('next').addEventListener('click', ()=>{
+document.getElementById('next').addEventListener('click', ()=>{// next bbtn pe click karenge to ye function run hoga
     if(songIndex>=9){
         songIndex = 0
     }
@@ -92,20 +98,49 @@ document.getElementById('next').addEventListener('click', ()=>{
     audioElement.play();
     masterPlay.classList.remove('fa-play-circle');
     masterPlay.classList.add('fa-pause-circle');
+    // e.target.classList.remove('fa-pause-circle');
+    // e.target.classList.add('fa-play-circle');
+    songItemPlay.classList.remove('fa-pause-circle');
+    songItemPlay.classList.add('fa-play-circle');
+    // element.addEventListener('click', (e)=>{ 
+    //      e.target.classList.remove('fa-pause-circle');
+    //  e.target.classList.add('fa-play-circle');
+    // })
+   
+    // const makeAllPlays = ()=>{
+    //     Array.from(document.getElementsByClassName('songItemPlay')).forEach((element)=>{
+    //         element.classList.remove('fa-pause-circle');
+    //         element.classList.add('fa-play-circle');
+    //     })
+    // }
+
+    element.classList.remove('fa-pause-circle');
+          element.classList.add('fa-play-circle');
 
 })
 
-document.getElementById('previous').addEventListener('click', ()=>{
+document.getElementById('previous').addEventListener('click', ()=>{// previous pe koi click kare to ye function run karo 
     if(songIndex<=0){
         songIndex = 0
     }
     else{
         songIndex -= 1;
     }
+
+    
+
     audioElement.src = `songs/${songIndex+1}.mp3`;
-    masterSongName.innerText = songs[songIndex].songName;
+    masterSongName.innerText = songs[songIndex].songName;// niche song kaa naam ke liye progress bar ke niche
     audioElement.currentTime = 0;
     audioElement.play();
+
+   
+
     masterPlay.classList.remove('fa-play-circle');
     masterPlay.classList.add('fa-pause-circle');
+
+    // element.classList.remove('fa-pause-circle');
+    // element.classList.add('fa-play-circle');
+
+   
 })
