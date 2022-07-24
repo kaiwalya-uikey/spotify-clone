@@ -9,14 +9,15 @@ let gif = document.getElementById('gif'); // 87 <img src="playing.gif" width="42
 let masterSongName = document.getElementById('masterSongName');
 let songItems = Array.from(document.getElementsByClassName('songItem'));
 let songItemPlay= document.getElementsByClassName('songItemPlay');
+// let previous= document.getElementsByClassName('previous');
 
 let songs = [ // array of objects hai ye
-    {songName: "Warriyo - Mortals [NCS Release]", filePath: "songs/1.mp3", coverPath: "covers/1.jpg"},
-    {songName: "Cielo - Huma-Huma", filePath: "songs/2.mp3", coverPath: "covers/2.jpg"},
-    {songName: "DEAF KEV - Invincible [NCS Release]-320k", filePath: "songs/3.mp3", coverPath: "covers/3.jpg"},
-    {songName: "Different Heaven & EH!DE - My Heart [NCS Release]", filePath: "songs/4.mp3", coverPath: "covers/4.jpg"},
-    {songName: "Janji-Heroes-Tonight-feat-Johnning-NCS-Release", filePath: "songs/5.mp3", coverPath: "covers/5.jpg"},
-    {songName: "Rabba - Salam-e-Ishq", filePath: "songs/2.mp3", coverPath: "covers/6.jpg"},
+    {songName: "Dhakka - Sidhu Moosewala", filePath: "songs/1.mp3", coverPath: "covers/1.jpg"},
+    {songName: "Born to Shine - Diljit Dosanjh", filePath: "songs/2.mp3", coverPath: "covers/2.jpg"},
+    {songName: "GOAT - Diljit Dosanjh", filePath: "songs/3.mp3", coverPath: "covers/3.jpg"},
+    {songName: "Paasori", filePath: "songs/4.mp3", coverPath: "covers/4.jpg"},
+    {songName: "So-High - Sidhu Moosewala", filePath: "songs/5.mp3", coverPath: "covers/5.jpg"},
+    {songName: "Sulthan - KGF-2", filePath: "songs/2.mp3", coverPath: "covers/6.jpg"},
     {songName: "Luna - Diljit Dosanjh", filePath: "songs/2.mp3", coverPath: "covers/7.jpg"},
     {songName: "No Love - Shubh", filePath: "songs/2.mp3", coverPath: "covers/8.jpg"},
     {songName: "Old skool - Sidhu Moosewala", filePath: "songs/2.mp3", coverPath: "covers/9.jpg"},
@@ -61,7 +62,7 @@ myProgressBar.addEventListener('change', ()=>{    // my progressbar pe change ev
                                // myProgressBar.value = progress = parseInt((audioElement.currentTime/audioElement.duration)* 100);
 })
 
-const makeAllPlays = ()=>{// ye ek function banaya jab ek song play ho raha hai to dusre song ki btn pe play kaa btn dikhaye aur us song pe pause ka btn
+let makeAllPlays = ()=>{// ye ek function banaya jab ek song play ho raha hai to dusre song ki btn pe play kaa btn dikhaye aur us song pe pause ka btn
     Array.from(document.getElementsByClassName('songItemPlay')).forEach((element)=>{
         element.classList.remove('fa-pause-circle');
         element.classList.add('fa-play-circle');
@@ -107,15 +108,28 @@ document.getElementById('next').addEventListener('click', ()=>{// next bbtn pe c
     //  e.target.classList.add('fa-play-circle');
     // })
    
-    // const makeAllPlays = ()=>{
-    //     Array.from(document.getElementsByClassName('songItemPlay')).forEach((element)=>{
-    //         element.classList.remove('fa-pause-circle');
-    //         element.classList.add('fa-play-circle');
-    //     })
-    // }
-
+    //  const makeAllPlays = ()=>{
+    //     Array.from(document.getElementsByClassName('songItemPlay')).forEach((eleme)=>{
+    //         eleme.classList.remove('fa-pause-circle');
+    //         eleme.classList.add('fa-play-circle');
+    //      })
+    //  }
+   
     element.classList.remove('fa-pause-circle');
           element.classList.add('fa-play-circle');
+
+          Array.from(document.getElementsByClassName('songItemPlay')).forEach((element)=>{
+            element.addEventListener('click', (e)=>{ // in btn par koi bhi click karta hai to hum ek callback function run karenge jisse song play hoga
+                makeAllPlays();// ye function hai jo
+                songIndex = parseInt(e.target.id);// e.target se wo element mil jaayega jis par click hua hai 
+               e.target.classList.remove('fa-pause-circle');
+               e.target.classList.add('fa-play-circle');// play btn remove karke pause btn add karo
+              
+             
+            })
+              
+            })
+       
 
 })
 
@@ -144,3 +158,9 @@ document.getElementById('previous').addEventListener('click', ()=>{// previous p
 
    
 })
+
+
+let para = document.getElementById('para');
+para.addEventListener('mouseover' , function run(){
+alert('im a billioniare');
+});
