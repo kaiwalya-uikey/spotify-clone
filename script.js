@@ -22,6 +22,16 @@ let songs = [ // array of objects hai ye
     {songName: "No Love - Shubh", filePath: "songs/2.mp3", coverPath: "covers/8.jpg"},
     {songName: "Old skool - Sidhu Moosewala", filePath: "songs/2.mp3", coverPath: "covers/9.jpg"},
     {songName: "We Rollin - Shubh", filePath: "songs/4.mp3", coverPath: "covers/10.jpg"},
+    {songName: "Dhakka - Sidhu Moosewala", filePath: "songs/1.mp3", coverPath: "covers/11.jpg"},
+    {songName: "Born to Shine - Diljit Dosanjh", filePath: "songs/2.mp3", coverPath: "covers/12.jpg"},
+    {songName: "GOAT - Diljit Dosanjh", filePath: "songs/3.mp3", coverPath: "covers/13.jpg"},
+    {songName: "Paasori", filePath: "songs/4.mp3", coverPath: "covers/4.jpg"},
+    {songName: "So-High - Sidhu Moosewala", filePath: "songs/5.mp3", coverPath: "covers/15.jpg"},
+    {songName: "Sulthan - KGF-2", filePath: "songs/2.mp3", coverPath: "covers/6.jpg"},
+    {songName: "Luna - Diljit Dosanjh", filePath: "songs/2.mp3", coverPath: "covers/7.jpg"},
+    {songName: "No Love - Shubh", filePath: "songs/2.mp3", coverPath: "covers/8.jpg"},
+    {songName: "Old skool - Sidhu Moosewala", filePath: "songs/2.mp3", coverPath: "covers/9.jpg"},
+    {songName: "We Rollin - Shubh", filePath: "songs/4.mp3", coverPath: "covers/10.jpg"},
 ]
 
 songItems.forEach((element, i)=>{ 
@@ -115,20 +125,20 @@ document.getElementById('next').addEventListener('click', ()=>{// next bbtn pe c
     //      })
     //  }
    
-    element.classList.remove('fa-pause-circle');
-          element.classList.add('fa-play-circle');
+    // element.classList.remove('fa-pause-circle');
+    //       element.classList.add('fa-play-circle');
 
-          Array.from(document.getElementsByClassName('songItemPlay')).forEach((element)=>{
-            element.addEventListener('click', (e)=>{ // in btn par koi bhi click karta hai to hum ek callback function run karenge jisse song play hoga
-                makeAllPlays();// ye function hai jo
-                songIndex = parseInt(e.target.id);// e.target se wo element mil jaayega jis par click hua hai 
-               e.target.classList.remove('fa-pause-circle');
-               e.target.classList.add('fa-play-circle');// play btn remove karke pause btn add karo
+    //       Array.from(document.getElementsByClassName('songItemPlay')).forEach((element)=>{
+    //         element.addEventListener('click', (e)=>{ // in btn par koi bhi click karta hai to hum ek callback function run karenge jisse song play hoga
+    //             makeAllPlays();// ye function hai jo
+    //             songIndex = parseInt(e.target.id);// e.target se wo element mil jaayega jis par click hua hai 
+    //            e.target.classList.remove('fa-pause-circle');
+    //            e.target.classList.add('fa-play-circle');// play btn remove karke pause btn add karo
               
              
-            })
+    //         })
               
-            })
+    //         })
        
 
 })
@@ -161,6 +171,6 @@ document.getElementById('previous').addEventListener('click', ()=>{// previous p
 
 
 let para = document.getElementById('para');
-para.addEventListener('mouseover' , function run(){
+para.addEventListener('click' , function run(){
 alert('im a billioniare');
 });
