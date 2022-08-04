@@ -111,8 +111,8 @@ document.getElementById('next').addEventListener('click', () => {// next bbtn pe
     masterPlay.classList.add('fa-pause-circle');
     // e.target.classList.remove('fa-pause-circle');
     // e.target.classList.add('fa-play-circle');
-    // songItemPlay.classList.remove('fa-pause-circle');
-    // songItemPlay.classList.add('fa-play-circle');
+    //  songItemPlay.classList.remove('fa-pause-circle');
+    //  songItemPlay.classList.add('fa-play-circle');
     // element.addEventListener('click', (e)=>{ 
     //      e.target.classList.remove('fa-pause-circle');
     //  e.target.classList.add('fa-play-circle');

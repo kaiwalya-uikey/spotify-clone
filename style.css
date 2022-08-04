@@ -198,7 +198,7 @@ nav ul li {
     width:130% ;
 } */
 
-.songItemPlay :hover {
+.songItemPlay:hover {
     transition: transform .2s;
     /* color: whitesmoke; */
     background-color:grey;
@@ -225,6 +225,14 @@ nav ul li :hover {
 
 .forw :hover{
     zoom: 130%;
+}
+
+.b1:hover{
+    background-color: gray;
+    color: black;
+    cursor: pointer;
+    border: 2px solid white;
+    border-radius: 6px;
 }
 
 
